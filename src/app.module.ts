@@ -1,15 +1,26 @@
 import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { MedicoModule } from './medico/medico.module';
+import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { CreateMedicoController } from './create-medico/create-medico.controller';
+import { CreateMedicoService } from './create-medico/create-medico.service';
+import { Medico } from './entities/medico.entity';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(
-      'mongodb+srv://robsonlira:uux3a2RtIztE6ugs@cluster0.cfjbb.mongodb.net/test',
-    ),
-    MedicoModule,
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      //@ts-ignore
+      type: process.env.TYPEORM_CONNECTION,
+      host: process.env.TYPEORM_HOST,
+      port: parseInt(process.env.TYPEORM_PORT),
+      usename: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_USERNAME,
+      database: process.env.TYPEORM_DATABASE,
+      entities: [Medico],
+    }),
+    TypeOrmModule.forFeature([Medico]),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [CreateMedicoController],
+  providers: [CreateMedicoService],
 })
 export class AppModule { }

@@ -34,4 +34,8 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 #
-teste.md
+.env
+.npm-cache
+.docker/dbdata
+.history
+.idea

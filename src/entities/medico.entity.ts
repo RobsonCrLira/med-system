@@ -1,34 +1,36 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn } from 'typeorm';
-import { v4 as uuid } from 'uuid';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { ApiProperty } from '@nestjs/swagger';
+import { Document } from 'mongoose';
 
-@Entity()
-class Medico {
-  @PrimaryColumn()
-  id: string;
+export type MedicoDocument = Medico & Document;
 
-  @Column({ length: 120 })
+@Schema()
+export class Medico {
+  @ApiProperty({ example: 'Joaquim', description: 'Nome do medico' })
+  @Prop()
   name: string;
 
-  @Column({ length: 7 })
+  @ApiProperty({ example: 23132132, description: 'CRM do medico' })
+  @Prop()
   crm: number;
 
-  @Column({ length: 11 })
+  @ApiProperty({ example: 16123456789, description: 'telefone do medico' })
+  @Prop()
   telefone: number;
 
-  @Column({ length: 8 })
+  @ApiProperty({
+    example: 15920000,
+    description: 'CEP de onde o medico reside',
+  })
+  @Prop()
   cep: number;
 
-  @Column()
+  @ApiProperty({
+    example: 'Angiologia, Alergologia',
+    description: 'Especialidade(s) do medico',
+  })
+  @Prop()
   especialidade: string;
-
-  @CreateDateColumn()
-  created_at: Date;
-
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
 }
 
-export { Medico };
+export const MedicoSchema = SchemaFactory.createForClass(Medico);

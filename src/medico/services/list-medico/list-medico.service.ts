@@ -14,7 +14,7 @@ export class ListMedicoService {
     return this.medicoModel.find();
   }
 
-  async findOneMedicoId(id: string) {
+  async findMedicoId(id: string) {
     const medico = await this.medicoModel.findById(id);
 
     if (!medico) {
@@ -23,8 +23,8 @@ export class ListMedicoService {
     return medico;
   }
 
-  async findOneMedicoName(name: string) {
-    const medico = await this.medicoModel.findOne({ name: name });
+  async findMedicoName(name: string) {
+    const medico = await this.medicoModel.find({ name: name });
 
     if (!medico) {
       return new AppError('Medico nao existe verifique o ID');
@@ -32,8 +32,8 @@ export class ListMedicoService {
     return medico;
   }
 
-  async findOneMedicoCep(cep: number) {
-    const medico = await this.medicoModel.findOne({ cep: cep });
+  async findMedicoCep(cep: number) {
+    const medico = await this.medicoModel.find({ cep: cep });
 
     if (!medico) {
       return new AppError('Medico nao existe verifique o ID');
@@ -41,8 +41,8 @@ export class ListMedicoService {
     return medico;
   }
 
-  async findOneMedicoCrm(crm: number) {
-    const medico = await this.medicoModel.findOne({ crm: crm });
+  async findMedicoCrm(crm: number) {
+    const medico = await this.medicoModel.find({ crm: crm });
 
     if (!medico) {
       return new AppError('Medico nao existe verifique o ID');
@@ -50,8 +50,8 @@ export class ListMedicoService {
     return medico;
   }
 
-  async findOneMedicoTelefone(telefone: number) {
-    const medico = await this.medicoModel.findOne({
+  async findMedicoTelefone(telefone: number) {
+    const medico = await this.medicoModel.find({
       telefone: telefone,
     });
 
@@ -61,7 +61,7 @@ export class ListMedicoService {
     return medico;
   }
 
-  async findOneMedicoEspecialidade(especialidade: string) {
+  async findMedicoEspecialidade(especialidade: string) {
     const medico = await this.medicoModel.findOne({
       especialidade: especialidade,
     });

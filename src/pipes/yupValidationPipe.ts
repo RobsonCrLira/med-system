@@ -4,7 +4,7 @@ import { SchemaOf } from 'yup';
 
 @Injectable()
 export class YupValidationPipe implements PipeTransform {
-  constructor(private readonly schema: SchemaOf<{}>) { }
+  constructor(private readonly schema: SchemaOf<{}>) {}
 
   async transform(value: any) {
     try {

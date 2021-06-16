@@ -3,7 +3,6 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { CreateMedicoDto } from 'src/dto/create-medico.dto';
 import { Medico, MedicoDocument } from 'src/entities/medico.entity';
-import { AppError } from 'src/errors/AppError';
 
 @Injectable()
 export class CreateMedicoService {

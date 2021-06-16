@@ -10,7 +10,7 @@ export class UpdateMedicoService {
     @InjectModel(Medico.name) private medicoModel: Model<MedicoDocument>,
   ) { }
 
-  async update(id: number, updateMedicoDto: UpdateMedicoDto) {
+  async update(id: string, updateMedicoDto: UpdateMedicoDto) {
     return this.medicoModel.findByIdAndUpdate(
       {
         _id: id,

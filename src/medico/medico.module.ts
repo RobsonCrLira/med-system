@@ -4,6 +4,7 @@ import { Medico, MedicoSchema } from 'src/entities/medico.entity';
 import { CreateMedicoController } from './controller/create-medico/create-medico.controller';
 import { DeleteMedicoController } from './controller/delete-medico/delete-medico.controller';
 import { ListMedicoController } from './controller/list-medico/list-medico.controller';
+import { UpdateMedicoController } from './controller/update-medico/update-medico.controller';
 import { CreateMedicoService } from './services/create-medico/create-medico.service';
 import { DeleteMedicoService } from './services/delete-medico/delete-medico.service';
 import { ListMedicoService } from './services/list-medico/list-medico.service';
@@ -23,6 +24,7 @@ import { UpdateMedicoService } from './services/update-medico/update-medico.serv
     CreateMedicoController,
     DeleteMedicoController,
     ListMedicoController,
+    UpdateMedicoController,
   ],
 })
 export class MedicoModule { }

@@ -10,7 +10,7 @@ No cadastro do médico, devem ser cadastrados os seguintes itens:
 - [x] Nome do médico com no máximo 120 caractéres
 - [x] CRM: somente números com no máximo 7 caracteres
 - [x] Telefone celular: somente números
-- [x] CEP: somente números (Ao cadastrar o CEP, deve ser feita uma reqisição via XHR para a API dos correios e retornar todos os dados de endereço do cliente).
+- [x] CEP: somente números (Ao cadastrar o CEP, deve ser feita uma reqisição via XHR para a API dos correios e retornar todos os dados de endereço do cliente). 
 - [ ]Especialidade médica (mínimo de duas especialidades)
 
 ## Itens importantes:
@@ -18,7 +18,7 @@ No cadastro do médico, devem ser cadastrados os seguintes itens:
 - [ ] Criar mecanismo de busca por todos os campos do cadastro do médico, incluindo o endereço
 - [x] Estar no padrão REST
 - [x] Utilizar ferramenta de validação (exemplo: YUP)
-- [ ] Funções especialistas (Realizam somente uma operação)
+- [x] Funções especialistas (Realizam somente uma operação)
 - [x] Para documentação e requisição utilizar o Postman, Insomnia ou Swagger (Enviar junto com o teste o workspace utilizado)
 - [x] Subir o código em repositório público do GitHub
 - [x] Criar arquivo docker compose para avaliação do teste

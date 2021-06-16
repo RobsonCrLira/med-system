@@ -8,7 +8,7 @@ import { AppError } from 'src/errors/AppError';
 export class DeleteMedicoService {
   constructor(
     @InjectModel(Medico.name) private medicoModel: Model<MedicoDocument>,
-  ) { }
+  ) {}
 
   async remove(id: string) {
     const medicoExist = await this.medicoModel.findById(id);

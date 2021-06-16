@@ -8,7 +8,7 @@ import { AppError } from 'src/errors/AppError';
 export class ListMedicoService {
   constructor(
     @InjectModel(Medico.name) private medicoModel: Model<MedicoDocument>,
-  ) { }
+  ) {}
 
   async findAllMedico(): Promise<Medico[]> {
     return this.medicoModel.find();

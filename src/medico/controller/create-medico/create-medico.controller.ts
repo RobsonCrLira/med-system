@@ -2,6 +2,7 @@ import { Body, Controller, Post, UsePipes } from '@nestjs/common';
 import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 import { CreateMedicoDto } from 'src/dto/create-medico.dto';
 import { Medico } from 'src/entities/medico.entity';
+import { AppError } from 'src/errors/AppError';
 import { CreateMedicoService } from 'src/medico/services/create-medico/create-medico.service';
 import { YupValidationPipe } from 'src/pipes/yupValidationPipe';
 import * as yup from 'yup';
@@ -24,6 +25,10 @@ export class CreateMedicoController {
   })
   @UsePipes(new YupValidationPipe(schema))
   async create(@Body() createMedicoDto: CreateMedicoDto): Promise<Medico> {
-    return this.createMedicoService.createMedico(createMedicoDto);
+    try {
+      return await this.createMedicoService.createMedico(createMedicoDto);
+    } catch (error) {
+      throw new AppError(error);
+    }
   }
 }
